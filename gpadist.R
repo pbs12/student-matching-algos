@@ -19,11 +19,12 @@ ggplot(data = tibble, aes(x = values)) +
   geom_histogram(color = "black") +
   geom_vline(xintercept = c(mean(tibble$values), 
                             median(tibble$values)),
-             color = c("red", "orange"), lwd = 1.5)
+             color = c("red", "orange"), lwd = 1.5) +
+  labs(title = "GPA Distribution", x = "GPA", y = "Count")
 
 mean(tibble$values) 
 median(tibble$values)
 min(tibble$values)
 max(tibble$values)
 
-write_csv(tibble, "gpadist.csv", col_names = FALSE)
+# write_csv(tibble, "gpadist.csv", col_names = FALSE)

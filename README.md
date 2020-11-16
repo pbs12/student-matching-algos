@@ -10,4 +10,4 @@ matching to centralize and declutter the process as well as improve student outc
 algorithm. Consists of the top 50 Fortune 500 companies. Each one is randomized to  
 have a capacity between 12 and 48. These capacities are summed to arrive at the number  
 of applicants. Each applicant's list of preferences is randomized amongst the 50 companies  
-and each company's preference list is randomized amonst the sum total of capacities applicants.# cs290-final-project-student-internship-matching
+and each company's preference list is randomized amonst the sum total of capacities applicants.

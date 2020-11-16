@@ -1,11 +1,11 @@
-import csv
+import csv, pickle
 
 # FILEPATHS - change these for your own directories
-capacities_csv = "capacities.csv"
-students_csv = "students.csv"
-employers_csv = "employers.csv"
-minorities_csv = "minorities.csv"
-minority_reserves_csv = "minority_reserves.csv"
+capacities_csv = "data/gen-10/gencapacities.csv"
+students_csv = "data/gen-10/students.csv"
+employers_csv = "data/gen-10/employers.csv"
+minorities_csv = "data/gen-10/minorities.csv"
+minority_reserves_csv = "data/gen-10/minority_reserves.csv"
 # minority_reserves_csv = "mr_0s.csv"
 # FILEPATHS - change these for your own directories
 
@@ -40,7 +40,6 @@ with open(students_csv, 'r') as csvfile:
         for i in range(len(prefs)):
             prefs[i] = prefs[i][1:-1]
         applicant_prefs_res[stud] = prefs
-applicant_prefs_master = applicant_prefs_res
 
 with open(employers_csv, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -50,7 +49,6 @@ with open(employers_csv, 'r') as csvfile:
         for i in range(len(prefs)):
             prefs[i] = int(prefs[i])
         employer_prefs[comp] = prefs
-employers_pref_master = employer_prefs 
 
 with open(minorities_csv, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -265,53 +263,18 @@ def matchingResults(final_results, resident_prefs):
 # capacities = {"1": 2, "2": 2, "3": 2}
 
 
-ttcRes = TTC_with_reserves(applicant_prefs, employer_prefs, capacities, minorities, minority_reserves)
-print(matchingResults(ttcRes, applicant_prefs_res))
 
-#BLOCKING PAIRS
 
-def list_pairings(pairing_master_list):
-    agg = []
-    for pairing in pairing_master_list:
-        company = pairing
-        for app in pairing_master_list[pairing]:
-            temp = [company, app]
-            agg.append(temp)
-    return agg
-list_pairings = list_pairings(ttcRes)
+# ttcMR = TTC_with_reserves(applicant_prefs, employer_prefs, capacities, minorities, minority_reserves)
+#ttcNoMR = TTC_without_reserves(applicant_prefs, employer_prefs, capacities)
+#print(matchingResults(ttcMR, applicant_prefs_res))
 
-def find_blocking_pairs3(pairings, prefs_app, prefs_comp):
-    count = 0
-    test_arr = ['nun']
-    count = 0
-    count_shit_data = 0
+# ttcMRDict = open("results/TTC/mr-gen-1", "wb")
+# pickle.dump(ttcMR, ttcMRDict)
+# ttcMRDict.close()
 
-    for pair in pairings:
-        comp_prefs = prefs_comp[pair[0]]
-        app_prefs = prefs_app[pair[1]]
-        comp = pair[0]
-        app = pair[1]
-        print(count)
-        count+=1
-        for other_pair in pairings:
-            other_comp = other_pair[0]
-            other_app = other_pair[1]
-            other_comp_prefs = prefs_comp[other_pair[0]]
-            other_app_prefs = prefs_app[other_pair[1]]
-            
-            if other_comp not in app_prefs:
-   #             print("used 1")
-                continue 
-            if app not in other_comp_prefs:
- #               print("used 2")
-                continue
-            if other_app not in other_comp_prefs:
-                continue
-            if other_pair[0] == pair[0] and other_pair[1] == pair[1]:
- #               print("used 4")
-                continue 
-            if app_prefs.index(comp) > app_prefs.index(other_comp) and other_comp_prefs.index(app) > other_comp_prefs.index(other_app):
-                test_arr.append(["blocking pair", app, comp," and ",other_app, other_comp])
-    print(len(test_arr))
-    return test_arr
-find_blocking_pairs3(list_pairings, applicant_prefs_master, employer_prefs_master)
+#ttcNoMRDict = open("results/TTC/no-mr-gen-10", "wb")
+#pickle.dump(ttcNoMR, ttcNoMRDict)
+#ttcNoMRDict.close()
+
+
