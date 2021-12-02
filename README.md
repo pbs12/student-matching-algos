@@ -1,5 +1,4 @@
-# **Research Question: How can match-making algorithm(s) be applied to internship-student  
-matching to centralize and declutter the process, as well as improve student outcomes?**
+# Research Question: How can match-making algorithm(s) be applied to internship-student matching to centralize and declutter the process, as well as improve student outcomes?
 
 # CS290 Algorithms Final Project
 
