@@ -17,5 +17,4 @@ Top trading cycle (TTC) is an algorithm for trading indivisible items without us
 
 ## other utilities
 - Random data generation scripts for student records and collegiate admission critera for testing with the data
-- a small implementation of the Boston Matching algorithm (to serve as a foil to Gale-Shapley)
-- 
+- A small implementation of the Boston Matching algorithm (to serve as a foil to Gale-Shapley)
