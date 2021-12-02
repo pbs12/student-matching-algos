@@ -1,11 +1,11 @@
+# **Research Question: How can match-making algorithm(s) be applied to internship-student  
+matching to centralize and declutter the process, as well as improve student outcomes?**
+
 # CS290 Algorithms Final Project
 
 *This project is a collaboration between Matt Jogodnik, Vikram Ruppa-Kasani,  
 Pranav Sharma, and Shubham Joshi and submitted as a final project for CS290  
 Algorithms Fall 2020 taught by Dr. Brandon Fain.*
-
-**Research Question: How can match-making algorithm(s) be applied to internship-student  
-matching to centralize and declutter the process, as well as improve student outcomes?**
 
 # In this directory:
 
